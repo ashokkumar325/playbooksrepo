@@ -1,0 +1,11 @@
+---
+- name: Insatll tomcat
+  apt:
+    name: "{{item.a}}"
+    state: "{{item.b}}"
+    update_cache: "{{item.c}}"
+  with_items:
+    - {a: "{{a}}",b: "{{b}}",c: "{{c}}"}
+    - {b: "{{d}}",b: "{{b}}",c: "{{e}}"}
+
+...

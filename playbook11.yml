@@ -1,0 +1,14 @@
+---
+- name: install/uninstall s/w's
+  hosts: servers
+  tasks:
+    - name: install s/w's
+      apt:
+        name: "{{item}}"
+        state: present
+        update_cache: yes
+      with_items:
+        - tree
+        - git
+        - maven
+...

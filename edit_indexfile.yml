@@ -1,0 +1,6 @@
+---
+- name: edit index file
+  copy:
+    content: "wellcome to my world"
+    dest: /var/www/html/index.html
+...

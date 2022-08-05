@@ -1,0 +1,31 @@
+---
+- name: Implementing handlers
+  hosts: all
+  tasks:
+    - name: Install apache2
+      apt:
+        name: apache2
+        state: present
+        update_cache: yes
+    - name: edit the index.html file
+      copy:
+        content: "MAKE IN INDIA"
+        dest: /var/www/html/index.html file
+      notify: restart apache
+  handlers:
+    - name: restart apache
+      service:
+        name: apache2
+        state: restarted
+    - name: check url response
+      uri:
+        url: "{{item}}"
+        status_code: 200
+      with_items:
+        http://172.31.10.7
+        http://172.31.1.115
+        http://172.31.5.221
+        http://`172.31.14.158
+
+...
+

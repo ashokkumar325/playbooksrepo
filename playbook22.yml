@@ -1,0 +1,12 @@
+---
+- name: check file for f1 if it doesnot have execute permission give it
+  hosts: all
+  tasks:
+    - name: check for f1 file
+      stat:
+        path: /tmp/f1
+        register: a
+    - name: Display output of the above module
+      debug:
+        var: a
+...

@@ -1,0 +1,10 @@
+---
+- name: Implimenting hosts scope varibles
+  hosts: webserver
+  tasks:
+  - name: install firewalld
+    apt:
+      name: "{{a}}"
+      state: "{{b}}"
+      update_cache: "{{c}}"
+...

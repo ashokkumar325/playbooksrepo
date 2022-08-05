@@ -1,0 +1,19 @@
+- name: Erroe Handling
+  hosts: all
+  tasks:
+    - block: 
+        - name: install tree using apt
+          apt:
+            name: tree
+            state: present
+            update_cache: yes
+      rescue:
+        - name: install tree using yum
+          yum:
+            name: tree
+            state: present
+            update_cache: yes      
+      always:
+        - name: print some msg
+          debug:
+            msg: "tree installation success"
